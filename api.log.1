@@ -1,0 +1,129 @@
+Exception on /views/home [GET]
+Traceback (most recent call last):
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/matt/venv/lib/python3.7/site-packages/flask_restplus/api.py", line 583, in error_router
+    return original_handler(e)
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/matt/counter_point/app/views.py", line 18, in get_test
+    return render_template('home.html')
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/templating.py", line 135, in render_template
+    context, ctx.app)
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/templating.py", line 117, in _render
+    rv = template.render(context)
+  File "/home/matt/venv/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/home/matt/venv/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/home/matt/venv/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/matt/venv/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "/home/matt/counter_point/app/templates/home.html", line 18, in top-level template code
+    <form action="{{ url_for('results')}}" method="post">
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/helpers.py", line 356, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 2061, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/helpers.py", line 345, in url_for
+    force_external=external)
+  File "/home/matt/venv/lib/python3.7/site-packages/werkzeug/routing.py", line 2020, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'results'. Did you mean 'sample_page.get_results' instead?
+Exception on /views/home [GET]
+Traceback (most recent call last):
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/matt/venv/lib/python3.7/site-packages/flask_restplus/api.py", line 583, in error_router
+    return original_handler(e)
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/matt/counter_point/app/views.py", line 18, in get_test
+    return render_template('home.html')
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/templating.py", line 135, in render_template
+    context, ctx.app)
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/templating.py", line 117, in _render
+    rv = template.render(context)
+  File "/home/matt/venv/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/home/matt/venv/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/home/matt/venv/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/matt/venv/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "/home/matt/counter_point/app/templates/home.html", line 18, in top-level template code
+    <form action="{{ url_for('results')}}" method="post">
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/helpers.py", line 356, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 2061, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/helpers.py", line 345, in url_for
+    force_external=external)
+  File "/home/matt/venv/lib/python3.7/site-packages/werkzeug/routing.py", line 2020, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'results'. Did you mean 'sample_page.get_results' instead?
+Exception on /views/home [GET]
+Traceback (most recent call last):
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/matt/venv/lib/python3.7/site-packages/flask_restplus/api.py", line 583, in error_router
+    return original_handler(e)
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/matt/counter_point/app/views.py", line 18, in get_test
+    return render_template('home.html')
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/templating.py", line 135, in render_template
+    context, ctx.app)
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/templating.py", line 117, in _render
+    rv = template.render(context)
+  File "/home/matt/venv/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/home/matt/venv/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/home/matt/venv/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/matt/venv/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "/home/matt/counter_point/app/templates/home.html", line 18, in top-level template code
+    <form action="{{ url_for('results')}}" method="post">
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/helpers.py", line 356, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 2061, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/helpers.py", line 345, in url_for
+    force_external=external)
+  File "/home/matt/venv/lib/python3.7/site-packages/werkzeug/routing.py", line 2020, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'results'. Did you mean 'sample_page.get_results' instead?

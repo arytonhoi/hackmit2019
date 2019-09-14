@@ -1,10 +1,11 @@
 <head>
     <link href=../static/css/test.css rel=stylesheet type=text/css>
 </head>
+{% block body %}
 <div class="hero-image">
     <div class="hero-text">
-      <h1>Counter Point</h1>
-      <p>Change the way you think.</p>
-      <input type="text"></input>
+        <h1>Counter Point</h1>
+        <h2>{{ article }}</h2>
     </div>
 </div>
+{% endblock %}
