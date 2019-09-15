@@ -1,5 +1,70 @@
 Exception on /views/results [POST]
 Traceback (most recent call last):
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/matt/venv/lib/python3.7/site-packages/flask_restplus/api.py", line 583, in error_router
+    return original_handler(e)
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/matt/counter_point/app/views.py", line 41, in get_results
+    a = Article(article, title, article_text)
+  File "/home/matt/counter_point/nlp/article.py", line 26, in __init__
+    self.get_document_sentiment()
+  File "/home/matt/counter_point/nlp/article.py", line 31, in get_document_sentiment
+    print('score {} mag{}'.format(self.document_sentiment.score, self.document_sentiment.magnitude))
+AttributeError: 'NoneType' object has no attribute 'score'
+Exception on /views/results [POST]
+Traceback (most recent call last):
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/matt/venv/lib/python3.7/site-packages/flask_restplus/api.py", line 583, in error_router
+    return original_handler(e)
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/matt/counter_point/app/views.py", line 41, in get_results
+    a = Article(article, title, article_text)
+  File "/home/matt/counter_point/nlp/article.py", line 26, in __init__
+    self.get_document_sentiment()
+  File "/home/matt/counter_point/nlp/article.py", line 30, in get_document_sentiment
+    self.document_sentiment.score = 50 * (document_sentiment.score + 1.0)
+NameError: name 'document_sentiment' is not defined
+Exception on /views/results [POST]
+Traceback (most recent call last):
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/matt/venv/lib/python3.7/site-packages/flask_restplus/api.py", line 583, in error_router
+    return original_handler(e)
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/matt/counter_point/app/views.py", line 56, in get_results
+    if article.document_sentiment < 40:
+TypeError: '<' not supported between instances of 'Sentiment' and 'int'
+Exception on /views/results [POST]
+Traceback (most recent call last):
   File "/home/matt/venv/lib/python3.7/site-packages/urllib3/connection.py", line 160, in _new_conn
     (self._dns_host, self.port), self.timeout, **extra_kw)
   File "/home/matt/venv/lib/python3.7/site-packages/urllib3/util/connection.py", line 57, in create_connection
@@ -33,7 +98,7 @@ Traceback (most recent call last):
     conn = self._new_conn()
   File "/home/matt/venv/lib/python3.7/site-packages/urllib3/connection.py", line 169, in _new_conn
     self, "Failed to establish a new connection: %s" % e)
-urllib3.exceptions.NewConnectionError: <urllib3.connection.VerifiedHTTPSConnection object at 0x7f2d8c823fd0>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution
+urllib3.exceptions.NewConnectionError: <urllib3.connection.VerifiedHTTPSConnection object at 0x7fb27272ea58>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution
 
 During handling of the above exception, another exception occurred:
 
@@ -44,7 +109,7 @@ Traceback (most recent call last):
     _stacktrace=sys.exc_info()[2])
   File "/home/matt/venv/lib/python3.7/site-packages/urllib3/util/retry.py", line 399, in increment
     raise MaxRetryError(_pool, url, error or ResponseError(cause))
-urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='www.cnn.com', port=443): Max retries exceeded with url: /2019/09/14/politics/pompeo-drone-strikes-saudi-oil/index.html (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x7f2d8c823fd0>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='www.foxnews.com', port=443): Max retries exceeded with url: /politics/pompeo-condemns-iran-saudi-oil (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x7fb27272ea58>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
 
 During handling of the above exception, another exception occurred:
 
@@ -63,8 +128,8 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/matt/counter_point/app/views.py", line 29, in get_results
-    page = requests.get(article)
+  File "/home/matt/counter_point/app/views.py", line 48, in get_results
+    temp_page = requests.get(url).content
   File "/home/matt/venv/lib/python3.7/site-packages/requests/api.py", line 75, in get
     return request('get', url, params=params, **kwargs)
   File "/home/matt/venv/lib/python3.7/site-packages/requests/api.py", line 60, in request
@@ -75,4 +140,4 @@ Traceback (most recent call last):
     r = adapter.send(request, **kwargs)
   File "/home/matt/venv/lib/python3.7/site-packages/requests/adapters.py", line 516, in send
     raise ConnectionError(e, request=request)
-requests.exceptions.ConnectionError: HTTPSConnectionPool(host='www.cnn.com', port=443): Max retries exceeded with url: /2019/09/14/politics/pompeo-drone-strikes-saudi-oil/index.html (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x7f2d8c823fd0>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='www.foxnews.com', port=443): Max retries exceeded with url: /politics/pompeo-condemns-iran-saudi-oil (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x7fb27272ea58>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))

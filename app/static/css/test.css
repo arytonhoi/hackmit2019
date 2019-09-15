@@ -86,7 +86,6 @@ h4 {
 .confidence-num {
   float: left;
   width: 20%;
-  text-align: center;
   left: 50%;
   color: white;
   font-size: 200%;
@@ -95,10 +94,10 @@ h4 {
 .returned-url {
   float: left;
   width: 80%;
-  text-align: center;
   left: 50%;
   color: white;
-  font-size: 200%;
+  font-size: 100%;
+  overflow-wrap: break-word;
 }
 
 h2 > a {
@@ -107,4 +106,6 @@ h2 > a {
 
 .result-row {
   border: 5px solid black;
+  height: 50px;
+  margin: 5px;
 }
