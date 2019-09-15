@@ -1,4 +1,4 @@
-from nlp import NLP
+from counter_point.nlp.nlp import NLP
 
 # represents an Article
 class Article:
@@ -53,11 +53,11 @@ class Article:
                                     topic.sentiment.magnitude))
 
 
-if __name__ == '__main__':
-    title = 'A plan to end gun violence from students who survived it'
-    content = 'They demanded change and ignited a grass-roots movement that has given youthful new vigor to the fight for gun safety. Now, these young activists have put forward a bold gun-control proposal that aims to reframe the debate on gun policy.'
+# if __name__ == '__main__':
+#     title = 'A plan to end gun violence from students who survived it'
+#     content = 'They demanded change and ignited a grass-roots movement that has given youthful new vigor to the fight for gun safety. Now, these young activists have put forward a bold gun-control proposal that aims to reframe the debate on gun policy.'
 
-    a = Article('rip.com',title,content)    
-    print(a.text_content)
-    a.get_topics()
-    a.print_info()
+#     a = Article('rip.com',title,content)    
+#     print(a.text_content)
+#     a.get_topics()
+#     a.print_info()
