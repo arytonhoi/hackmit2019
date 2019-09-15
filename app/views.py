@@ -50,7 +50,8 @@ def get_results():
         temp_title = temp_soup.find('h1').get_text()
         result_articles.append(Article(url, temp_title, text_from_html(temp_page)))
     
-    
+    print(result_articles)
+    #take this list and sort into the three lists by sentiment and scale to 0-100 scale
 
     try:
         return render_template('results.html', url=article, article_trunc=('%.60s' % article), positive_list=positive_list, neutral_list=neutral_list, negative_list=negative_list)

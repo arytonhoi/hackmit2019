@@ -12,7 +12,7 @@ class NLP:
 
     def get_topics(self,content,salience_threshold,language='en',
                 type_=enums.Document.Type.PLAIN_TEXT, encoding_type=enums.EncodingType.UTF8):
-        print('getting topics')
+        # print('getting topics')
         # topics list
         topics = []
 
