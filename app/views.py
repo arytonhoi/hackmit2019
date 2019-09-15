@@ -27,8 +27,10 @@ def create_article(article_url):
         page = requests.get(article_url)
         soup = BeautifulSoup(page.content, 'html.parser')
 
-        # title = soup.find('h1').get_text() if soup.find('h1') else None
-        title = soup.find_all("h1", class_="balancedHeadLine pg-headline headLine headline title").get_text()
+        search = ['h1', '.balancedHeadline','.pg-headline','.headLine','.headline','.title']
+
+        title = soup.find(search).get_text() if soup.find(search) else None
+        # title = soup.find_all("h1", class_="balancedHeadLine pg-headline headLine headline title").get_text()
         if not title:
             title = None
         article_text = text_from_html(requests.get(article_url).content)
