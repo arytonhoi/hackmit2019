@@ -2,7 +2,7 @@
 from google.cloud import language
 from google.cloud.language import enums
 from google.cloud.language import types
-from counter_point.nlp.topic import Topic
+from nlp.topic import Topic
 
 class NLP:
     # Constructor
@@ -10,14 +10,14 @@ class NLP:
         # Instantiates a client
         self.client = language.LanguageServiceClient()
 
-    def get_topics(self,text_content,salience_threshold,title=None,language='en',
+    def get_topics(self,content,salience_threshold,language='en',
                 type_=enums.Document.Type.PLAIN_TEXT, encoding_type=enums.EncodingType.UTF8):
         print('getting topics')
         # topics list
         topics = []
 
         # call API to get entity analysis
-        document = {"content": text_content, "type": type_, "language": language}
+        document = {"content": content, "type": type_, "language": language}
         api_response = self.client.analyze_entity_sentiment(document, encoding_type=encoding_type)
 
         # loop over entities in api response
