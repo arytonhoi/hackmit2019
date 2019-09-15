@@ -30,8 +30,8 @@ def get_results():
     soup = BeautifulSoup(page.content, 'html.parser')
     title = soup.find('h1').get_text()
     article_text = text_from_html(requests.get(article).content)
-    # print("###########")
-    # print(title)
+    print("###########")
+    print(soup.findAll(text=True))
     # print(article_text)
 
     positive_list = []
@@ -43,6 +43,6 @@ def get_results():
     a.print_topic_info()
     
     try:
-        return render_template('results.html', url=article, article=('%.60s' % article), positive_list=positive_list, neutral_list=neutral_list, negative_list=negative_list)
+        return render_template('results.html', url=article, article_trunc=('%.60s' % article), positive_list=positive_list, neutral_list=neutral_list, negative_list=negative_list)
     except TemplateNotFound:
         abort(404)
