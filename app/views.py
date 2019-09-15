@@ -45,26 +45,30 @@ def get_results():
     # print(a.news_source)
     # a.print_topic_info()
 
-    result_urls = a.make_gsearch_query()
-    result_articles = []
-    for url in result_urls:
-        temp_page = requests.get(url).content
-        temp_soup = BeautifulSoup(temp_page, 'html.parser')
-        if temp_soup.find('h1'):
-            temp_title = temp_soup.find('h1').get_text()
-        else:
-            temp_title = ""
-        result_articles.append(Article(url, temp_title, text_from_html(temp_page)))
+    # result_urls = a.make_gsearch_query()
+    # result_articles = []
+    # for url in result_urls:
+    #     temp_page = requests.get(url).content
+    #     temp_soup = BeautifulSoup(temp_page, 'html.parser')
+    #     if temp_soup.find('h1'):
+    #         temp_title = temp_soup.find('h1').get_text()
+    #     else:
+    #         temp_title = ""
+    #     result_articles.append(Article(url, temp_title, text_from_html(temp_page)))
     
-    print(result_articles)
-    #take this list and sort into the three lists by sentiment and scale to 0-100 scale
-    for article in result_articles:
-        if article.document_sentiment.score <= 40:
-            negative_list.append(article)
-        elif article.document_sentiment.score >= 60:
-            positive_list.append(article)
-        else:
-            neutral_list.append(article)
+    # print(result_articles)
+    
+    # for article in result_articles:
+    #     if article.document_sentiment.score <= 40:
+    #         negative_list.append(article)
+    #     elif article.document_sentiment.score >= 60:
+    #         positive_list.append(article)
+    #     else:
+    #         neutral_list.append(article)
+
+    negative_list = a.get_disagreeing_articles()
+    neutral_list = a.get_neutral_articles()
+    positive_list = a.get_agreeing_articles()
 
     try:
         return render_template('results.html', main_article=a, article_trunc=('%.40s' % a.url), positive_list=positive_list, neutral_list=neutral_list, negative_list=negative_list)
