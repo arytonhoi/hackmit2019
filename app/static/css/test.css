@@ -31,8 +31,9 @@ h4 {
   text-align: center;
   left: 50%;
   color: white;
-  font-size: 600%;
+  font-size: 400%;
   margin: 0px;
+  justify-content: center;
 }
 
 .results-text {

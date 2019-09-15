@@ -5,7 +5,7 @@
 <div class="hero-image">
     <div id="results" class="results-text">
         <h3>Results</h3>
-        <h2><a href="{{ main_article.url }}" class="input-url">{{ main_article.title }}</a></h2>
+        <h2><a href="{{ main_article.url }}" class="input-url">{{main_article.source_name}} : {{ main_article.title }}</a></h2>
     </div>
         <div class="results-section">
             <div class="col-3">
@@ -13,7 +13,7 @@
                 {% for article in liberal_articles %}
                 <div class="result-row">
                     <div class="confidence-num">{#{{ article.document_sentiment.score }}#}</div>
-                    <a href="{{ article.url }}" class="returned-url">{{ article.title }}</a>
+                    <a href="{{ article.url }}" class="returned-url">Δ {{article.source_name}} : {{ article.title }}</a>
                 </div>
                 {% endfor %}
             </div>
@@ -22,7 +22,7 @@
                 {% for article in neutral_articles %}
                 <div class="result-row">
                     <div class="confidence-num">{#{{ article.document_sentiment.score }}#}</div>
-                    <a href="{{ article.url }}" class="returned-url">{{ article.title }}</a>
+                    <a href="{{ article.url }}" class="returned-url">Δ {{article.source_name}} : {{ article.title }}</a>
                 </div>
                 {% endfor %}
             </div>
@@ -31,7 +31,7 @@
                 {% for article in conservative_articles %}
                 <div class="result-row">
                     <div class="confidence-num">{#{{ article.document_sentiment.score }}#}</div>
-                    <a href="{{ article.url }}" class="returned-url">{{ article.title }}</a>
+                    <a href="{{ article.url }}" class="returned-url">Δ {{article.source_name}} : {{ article.title }}</a>
                 </div>
                 {% endfor %}
             </div>

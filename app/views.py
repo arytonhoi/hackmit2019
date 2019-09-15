@@ -23,11 +23,11 @@ def get_test():
     except TemplateNotFound:
         abort(404)
 
-def create_article(article_url):
+def create_article(article_url,get_topics=True):
         page = requests.get(article_url)
         soup = BeautifulSoup(page.content, 'html.parser')
 
-        search = ['h1', '.balancedHeadline','.pg-headline','.headLine','.headline','.title']
+        search = ['h1', '.balancedHeadline','.pg-headline','.headLine','.headline','.title','.content__title']
 
         title = soup.find(search).get_text() if soup.find(search) else None
         # title = soup.find_all("h1", class_="balancedHeadLine pg-headline headLine headline title").get_text()
@@ -35,7 +35,7 @@ def create_article(article_url):
             title = None
         article_text = text_from_html(requests.get(article_url).content)
 
-        return Article(article_url, title, article_text,get_topics=False)
+        return Article(article_url, title, article_text,get_topics=get_topics)
 
 @sample_page.route('/results', methods=['POST'])
 def get_results():
@@ -90,11 +90,11 @@ def get_results():
     conservative_articles = []
 
     for liberal_url in liberal_urls:
-        liberal_articles.append(create_article(liberal_url))
+        liberal_articles.append(create_article(liberal_url,get_topics=False))
     for neutral_url in neutral_urls:
-        neutral_articles.append(create_article(neutral_url))
+        neutral_articles.append(create_article(neutral_url,get_topics=False))
     for conservative_url in conservative_urls:
-        conservative_articles.append(create_article(conservative_url))
+        conservative_articles.append(create_article(conservative_url,get_topics=False))
 
     try:
         # return render_template('results.html', main_article=input_article, article_trunc=('%.40s' % a.url), 
