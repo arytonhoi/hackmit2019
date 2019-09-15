@@ -4,3 +4,9 @@ class Topic:
       self.topic_type = topic_type # PERSON,LOCATION,etc
       self.salience = salience # prominence of topic to article
       self.sentiment = sentiment # sentiment of topic in article
+
+    def get_salience(self):
+      return self.salience
+
+    def get_name(self):
+      return self.topic_name
