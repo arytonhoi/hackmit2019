@@ -87,7 +87,6 @@ class Article:
         # print(related_article_urls)
         return related_article_urls
         
-
     # Gets other articles that agree with this one
     def get_agreeing_articles(self,amount=5):
         if self.source_base_url in liberal_sources:
@@ -111,7 +110,6 @@ class Article:
     def print_topic_info(self):
         for topic_list in [self.title_topics,self.topics]:
             if topic_list:
-                print('Topics Set ...')
                 for topic in topic_list:
                     salience = topic.salience
                     sentiment = topic.sentiment
