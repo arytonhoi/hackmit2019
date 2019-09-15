@@ -8,7 +8,7 @@ psycogreen.gevent.patch_psycopg()
 
 import logging
 
-from app import create_app
+from counter_point.app import create_app
 
 app = create_app()
 
