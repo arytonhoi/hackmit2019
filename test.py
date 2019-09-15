@@ -8,4 +8,5 @@ if __name__ == '__main__':
 
   a = Article(url,title,content)    
   print(a.source_name)
-  a.print_topic_info()
+  # a.print_topic_info()
+  a.make_gsearch_query()
