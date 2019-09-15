@@ -1,5 +1,7 @@
 from nlp.nlp import NLP
+from nlp.topic import Topic
 import tldextract #library for url domain name extraction
+from googleapiclient.discovery import build # google search api
 
 # represents an Article
 class Article:
@@ -15,6 +17,8 @@ class Article:
         self.title_topics = [] # list of topics from title
         self.citations = [] #list of citation objects
         self.date = None # date of article
+        
+        self.related_articles = [] # list of related articles
 
         self.nlp = NLP()
         self.get_source_name()
@@ -34,8 +38,38 @@ class Article:
             self.title_topics = self.nlp.get_topics(self.title,salience_threshold,language=language)
         return None        
 
-    def get_keywords(self):
-        return None
+    # get most important keywords of article
+    def get_keywords(self,num=3):
+        all_topics = self.title_topics + self.topics
+        # sort by salience
+        keywords = sorted(all_topics,key=Topic.get_salience)
+        return keywords[:num]
+
+    # form query from keywords
+    def make_gsearch_query(self,num_results=10):
+        query = ""
+        keywords = self.get_keywords()
+        for count,keyword in enumerate(keywords):
+            if count == len(keywords) - 1:
+                query += 'allintext: ' + keyword.get_name()
+            else:
+                query += 'allintext: ' + keyword.get_name() + ' OR '
+
+        service = build("customsearch", "v1",developerKey="AIzaSyDmMtbto7Wpq_BoCwSI9jzruHi7mwOKQZk")
+        print(query)
+        results = service.cse().list(
+            q=query,#query
+            cx='001726485510114792400:d0dxila2d96',#search engine id
+            num=num_results # number of results to give
+            ).execute()
+
+        related_article_urls = []
+        for result in results['items']:
+            related_article_urls.append(result['link'])
+
+        print(related_article_urls)
+        return related_article_urls
+        
 
     # Gets other articles that agree with this one
     def get_agreeing_articles(self,amount=5):
