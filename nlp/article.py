@@ -62,14 +62,7 @@ class Article:
 #     title = 'A plan to end gun violence from students who survived it'
 #     content = 'They demanded change and ignited a grass-roots movement that has given youthful new vigor to the fight for gun safety. Now, these young activists have put forward a bold gun-control proposal that aims to reframe the debate on gun policy.'
 
-<<<<<<< HEAD
-    a = Article('rip.com',title,content)    
-    print(a.text_content)
-    # a.get_topics()
-    a.print_topic_info()
-=======
 #     a = Article('rip.com',title,content)    
 #     print(a.text_content)
 #     a.get_topics()
 #     a.print_info()
->>>>>>> e00aa51885a05bae5305de3ed7ff9c6ad0021b6f
