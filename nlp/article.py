@@ -27,7 +27,7 @@ class Article:
         if get_topics:
             self.nlp = NLP()
             self.get_topics()
-            self.get_document_sentiment()
+            # self.get_document_sentiment()
     
     def get_document_sentiment(self):
         self.document_sentiment = self.nlp.get_whole_sentiment(self.text_content,language='en') 
@@ -62,6 +62,7 @@ class Article:
     def make_gsearch_query(self,sources=None,amount=2):
         query = ""
         keywords = self.get_keywords()
+        self.print_topics(keywords)
         for count,keyword in enumerate(keywords):
             if count == len(keywords) - 1:
                 query += 'allintext:' + keyword.get_name()
@@ -76,7 +77,7 @@ class Article:
                     query += ' site:' + source + ' OR'
 
         service = build("customsearch", "v1",developerKey="AIzaSyDmMtbto7Wpq_BoCwSI9jzruHi7mwOKQZk")
-        # print(query)
+        print('searching {}'.format(query))
         results = service.cse().list(
             q=query,#query
             cx='001726485510114792400:d0dxila2d96',#search engine id
@@ -122,3 +123,7 @@ class Article:
                                         topic.salience,
                                         topic.sentiment.score,
                                         topic.sentiment.magnitude))
+
+    def print_topics(self,topics):
+        for topic in topics:
+            print("topic: {}".format(topic.get_name()))
