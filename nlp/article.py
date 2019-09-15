@@ -1,5 +1,5 @@
-from nlp.nlp import NLP
-from nlp.topic import Topic
+from counter_point.nlp.nlp import NLP
+from counter_point.nlp.topic import Topic
 import tldextract #library for url domain name extraction
 from googleapiclient.discovery import build # google search api
 
@@ -30,6 +30,7 @@ class Article:
     
     def get_document_sentiment(self):
         self.document_sentiment = self.nlp.get_whole_sentiment(self.text_content,language='en') 
+        self.document_sentiment.score = 50 * (self.document_sentiment.score + 1.0)
         print('score {} mag{}'.format(self.document_sentiment.score, self.document_sentiment.magnitude))
         return None
    
@@ -42,7 +43,9 @@ class Article:
     # Uses GCloud NPL api to parse text for topics (entities)
     # topics are keywords to the article
     def get_topics(self, salience_threshold=0.02,language='en'):
-        self.topics = self.nlp.get_topics(self.text_content,salience_threshold,language=language)
+        # print("articles topics")
+        if self.topics:
+            self.topics = self.nlp.get_topics(self.text_content,salience_threshold,language=language)
         if self.title:
             self.title_topics = self.nlp.get_topics(self.title,salience_threshold,language=language)
         return None        
@@ -55,7 +58,7 @@ class Article:
         return keywords[:num]
 
     # form query from keywords
-    def make_gsearch_query(self,sources=None,amount=10):
+    def make_gsearch_query(self,sources=None,amount=2):
         query = ""
         keywords = self.get_keywords()
         for count,keyword in enumerate(keywords):
@@ -72,7 +75,7 @@ class Article:
                     query += ' site:' + source + ' OR'
 
         service = build("customsearch", "v1",developerKey="AIzaSyDmMtbto7Wpq_BoCwSI9jzruHi7mwOKQZk")
-        print(query)
+        # print(query)
         results = service.cse().list(
             q=query,#query
             cx='001726485510114792400:d0dxila2d96',#search engine id

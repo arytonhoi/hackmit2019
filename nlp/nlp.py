@@ -2,7 +2,7 @@
 from google.cloud import language
 from google.cloud.language import enums
 from google.cloud.language import types
-from nlp.topic import Topic
+from counter_point.nlp.topic import Topic
 
 class NLP:
     # Constructor
@@ -21,7 +21,7 @@ class NLP:
 
     def get_topics(self,content,salience_threshold,language='en',
                 type_=enums.Document.Type.PLAIN_TEXT, encoding_type=enums.EncodingType.UTF8):
-        print('getting topics')
+        # print('getting topics')
         # topics list
         topics = []
 
