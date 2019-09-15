@@ -10,3 +10,6 @@ class Topic:
 
     def get_name(self):
       return self.topic_name
+
+    def get_sentiment(self):
+      return self.sentiment
