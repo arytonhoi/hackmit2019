@@ -3,6 +3,8 @@ from counter_point.nlp.topic import Topic
 import tldextract #library for url domain name extraction
 from googleapiclient.discovery import build # google search api
 
+
+
 # represents an Article
 class Article:
     # Constructor
@@ -16,14 +18,17 @@ class Article:
         self.topics = [] # list of topic objects from content
         self.title_topics = [] # list of topics from title
         self.citations = [] #list of citation objects
-        self.date = None # date of article
-        
-        self.related_articles = [] # list of related articles
+        self.document_sentiment = None
 
         self.nlp = NLP()
         self.get_source_name()
         self.get_topics()
-        
+        self.get_document_sentiment()
+    
+    def get_document_sentiment(self):
+        self.document_sentiment = self.nlp.get_whole_sentiment(self.text_content,language='en') 
+        print('score {} mag{}'.format(self.document_sentiment.score, self.document_sentiment.magnitude))
+        return None
    
     # gets source name (Ex. CNN or Fox) of Article based on url
     def get_source_name(self):

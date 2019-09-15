@@ -10,6 +10,15 @@ class NLP:
         # Instantiates a client
         self.client = language.LanguageServiceClient()
 
+    def get_whole_sentiment(self,content,language='en',
+                type_=enums.Document.Type.PLAIN_TEXT, encoding_type=enums.EncodingType.UTF8):
+ 
+        # call API to get entity analysis
+        document = {"content": content, "type": type_, "language": language}
+        api_response = self.client.analyze_sentiment(document, encoding_type=encoding_type)
+        return api_response.document_sentiment
+
+
     def get_topics(self,content,salience_threshold,language='en',
                 type_=enums.Document.Type.PLAIN_TEXT, encoding_type=enums.EncodingType.UTF8):
         # print('getting topics')
