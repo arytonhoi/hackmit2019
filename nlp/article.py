@@ -1,4 +1,4 @@
-from nlp.nlp import NLP
+from counter_point.nlp.nlp import NLP
 import tldextract #library for url domain name extraction
 
 # represents an Article
