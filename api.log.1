@@ -14,13 +14,9 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/matt/counter_point/app/views.py", line 41, in get_results
-    a = Article(article, title, article_text)
-  File "/home/matt/counter_point/nlp/article.py", line 26, in __init__
-    self.get_document_sentiment()
-  File "/home/matt/counter_point/nlp/article.py", line 31, in get_document_sentiment
-    print('score {} mag{}'.format(self.document_sentiment.score, self.document_sentiment.magnitude))
-AttributeError: 'NoneType' object has no attribute 'score'
+  File "/home/matt/counter_point/app/views.py", line 64, in get_results
+    return render_template('results.html', main_article=a, article_trunc=('%.40s' % main_article), positive_list=positive_list, neutral_list=neutral_list, negative_list=negative_list)
+NameError: name 'main_article' is not defined
 Exception on /views/results [POST]
 Traceback (most recent call last):
   File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 2292, in wsgi_app
@@ -37,13 +33,9 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/matt/counter_point/app/views.py", line 41, in get_results
-    a = Article(article, title, article_text)
-  File "/home/matt/counter_point/nlp/article.py", line 26, in __init__
-    self.get_document_sentiment()
-  File "/home/matt/counter_point/nlp/article.py", line 30, in get_document_sentiment
-    self.document_sentiment.score = 50 * (document_sentiment.score + 1.0)
-NameError: name 'document_sentiment' is not defined
+  File "/home/matt/counter_point/app/views.py", line 50, in get_results
+    temp_title = temp_soup.find('h1').get_text()
+AttributeError: 'NoneType' object has no attribute 'get_text'
 Exception on /views/results [POST]
 Traceback (most recent call last):
   File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 2292, in wsgi_app
@@ -60,59 +52,47 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/matt/counter_point/app/views.py", line 56, in get_results
-    if article.document_sentiment < 40:
-TypeError: '<' not supported between instances of 'Sentiment' and 'int'
+  File "/home/matt/counter_point/app/views.py", line 53, in get_results
+    temp_title = temp_soup.find('h1').get_text()
+AttributeError: 'NoneType' object has no attribute 'get_text'
 Exception on /views/results [POST]
 Traceback (most recent call last):
-  File "/home/matt/venv/lib/python3.7/site-packages/urllib3/connection.py", line 160, in _new_conn
-    (self._dns_host, self.port), self.timeout, **extra_kw)
-  File "/home/matt/venv/lib/python3.7/site-packages/urllib3/util/connection.py", line 57, in create_connection
-    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
-  File "/home/matt/venv/lib/python3.7/site-packages/gevent/_socketcommon.py", line 212, in getaddrinfo
-    addrlist = get_hub().resolver.getaddrinfo(host, port, family, type, proto, flags)
-  File "/home/matt/venv/lib/python3.7/site-packages/gevent/resolver/thread.py", line 65, in getaddrinfo
-    return self.pool.apply(_socket.getaddrinfo, args, kwargs)
-  File "/home/matt/venv/lib/python3.7/site-packages/gevent/pool.py", line 159, in apply
-    return self.spawn(func, *args, **kwds).get()
-  File "src/gevent/event.py", line 268, in gevent._event.AsyncResult.get
-  File "src/gevent/event.py", line 296, in gevent._event.AsyncResult.get
-  File "src/gevent/event.py", line 286, in gevent._event.AsyncResult.get
-  File "src/gevent/event.py", line 266, in gevent._event.AsyncResult._raise_exception
-  File "/home/matt/venv/lib/python3.7/site-packages/gevent/_compat.py", line 47, in reraise
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/matt/venv/lib/python3.7/site-packages/flask_restplus/api.py", line 583, in error_router
+    return original_handler(e)
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/matt/counter_point/app/views.py", line 74, in get_results
+    return render_template('results.html', main_article=a, article_trunc=('%.40s' % a.url), positive_list=positive_list, neutral_list=neutral_list, negative_list=negative_list)
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/templating.py", line 135, in render_template
+    context, ctx.app)
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/templating.py", line 117, in _render
+    rv = template.render(context)
+  File "/home/matt/venv/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/home/matt/venv/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/home/matt/venv/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/matt/venv/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
     raise value.with_traceback(tb)
-  File "/home/matt/venv/lib/python3.7/site-packages/gevent/threadpool.py", line 281, in _worker
-    value = func(*args, **kwargs)
-socket.gaierror: [Errno -3] Temporary failure in name resolution
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/home/matt/venv/lib/python3.7/site-packages/urllib3/connectionpool.py", line 603, in urlopen
-    chunked=chunked)
-  File "/home/matt/venv/lib/python3.7/site-packages/urllib3/connectionpool.py", line 344, in _make_request
-    self._validate_conn(conn)
-  File "/home/matt/venv/lib/python3.7/site-packages/urllib3/connectionpool.py", line 843, in _validate_conn
-    conn.connect()
-  File "/home/matt/venv/lib/python3.7/site-packages/urllib3/connection.py", line 316, in connect
-    conn = self._new_conn()
-  File "/home/matt/venv/lib/python3.7/site-packages/urllib3/connection.py", line 169, in _new_conn
-    self, "Failed to establish a new connection: %s" % e)
-urllib3.exceptions.NewConnectionError: <urllib3.connection.VerifiedHTTPSConnection object at 0x7fb27272ea58>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/home/matt/venv/lib/python3.7/site-packages/requests/adapters.py", line 449, in send
-    timeout=timeout
-  File "/home/matt/venv/lib/python3.7/site-packages/urllib3/connectionpool.py", line 641, in urlopen
-    _stacktrace=sys.exc_info()[2])
-  File "/home/matt/venv/lib/python3.7/site-packages/urllib3/util/retry.py", line 399, in increment
-    raise MaxRetryError(_pool, url, error or ResponseError(cause))
-urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='www.foxnews.com', port=443): Max retries exceeded with url: /politics/pompeo-condemns-iran-saudi-oil (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x7fb27272ea58>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
-
-During handling of the above exception, another exception occurred:
-
+  File "/home/matt/counter_point/app/templates/results.html", line 4, in top-level template code
+    {% block body %}
+  File "/home/matt/counter_point/app/templates/results.html", line 15, in block "body"
+    <div class="confidence-num">{{ article.document_sentiment.score }}</div>
+  File "/home/matt/venv/lib/python3.7/site-packages/jinja2/environment.py", line 430, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'str object' has no attribute 'document_sentiment'
+Exception on /views/results [POST]
 Traceback (most recent call last):
   File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -128,16 +108,24 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/matt/counter_point/app/views.py", line 48, in get_results
-    temp_page = requests.get(url).content
-  File "/home/matt/venv/lib/python3.7/site-packages/requests/api.py", line 75, in get
-    return request('get', url, params=params, **kwargs)
-  File "/home/matt/venv/lib/python3.7/site-packages/requests/api.py", line 60, in request
-    return session.request(method=method, url=url, **kwargs)
-  File "/home/matt/venv/lib/python3.7/site-packages/requests/sessions.py", line 533, in request
-    resp = self.send(prep, **send_kwargs)
-  File "/home/matt/venv/lib/python3.7/site-packages/requests/sessions.py", line 646, in send
-    r = adapter.send(request, **kwargs)
-  File "/home/matt/venv/lib/python3.7/site-packages/requests/adapters.py", line 516, in send
-    raise ConnectionError(e, request=request)
-requests.exceptions.ConnectionError: HTTPSConnectionPool(host='www.foxnews.com', port=443): Max retries exceeded with url: /politics/pompeo-condemns-iran-saudi-oil (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x7fb27272ea58>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+  File "/home/matt/counter_point/app/views.py", line 74, in get_results
+    return render_template('results.html', main_article=a, article_trunc=('%.40s' % a.url), positive_list=positive_list, neutral_list=neutral_list, negative_list=negative_list)
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/templating.py", line 135, in render_template
+    context, ctx.app)
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/templating.py", line 117, in _render
+    rv = template.render(context)
+  File "/home/matt/venv/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/home/matt/venv/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/home/matt/venv/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/matt/venv/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "/home/matt/counter_point/app/templates/results.html", line 4, in top-level template code
+    {% block body %}
+  File "/home/matt/counter_point/app/templates/results.html", line 15, in block "body"
+    <!-- <div class="confidence-num">{{ article.document_sentiment.score }}</div> -->
+  File "/home/matt/venv/lib/python3.7/site-packages/jinja2/environment.py", line 430, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'str object' has no attribute 'document_sentiment'
