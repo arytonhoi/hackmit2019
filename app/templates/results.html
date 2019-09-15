@@ -12,8 +12,8 @@
                 <h4>-</h4>
                 {% for article in negative_list %}
                 <div class="result-row">
-                    <div class="confidence-num">{{ article.document_sentiment.score }}</div>
-                    <a href="{{ article.url }}" class="returned-url">{{ article.url }}</a>
+                    <div class="confidence-num">{#{{ article.document_sentiment.score }}#}</div>
+                    <a href="{{ article }}" class="returned-url">{{ article }}</a>
                 </div>
                 {% endfor %}
             </div>
@@ -21,8 +21,8 @@
                 <h4>Ø</h4>
                 {% for article in neutral_list %}
                 <div class="result-row">
-                    <div class="confidence-num">{{ article.document_sentiment.score }}</div>
-                    <a href="{{ article.url }}" class="returned-url">{{ article.url }}</a>
+                    <div class="confidence-num">{#{{ article.document_sentiment.score }}#}</div>
+                    <a href="{{ article }}" class="returned-url">{{ article }}</a>
                 </div>
                 {% endfor %}
             </div>
@@ -30,8 +30,8 @@
                 <h4>+</h4>
                 {% for article in positive_list %}
                 <div class="result-row">
-                    <div class="confidence-num">{{ article.document_sentiment.score }}</div>
-                    <a href="{{ article.url }}" class="returned-url">{{ article.url }}</a>
+                    <div class="confidence-num">{#{{ article.document_sentiment.score }}#}</div>
+                    <a href="{{ article }}" class="returned-url">{{ article }}</a>
                 </div>
                 {% endfor %}
             </div>
