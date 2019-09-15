@@ -28,15 +28,10 @@ def get_results():
     page = requests.get(article)
     soup = BeautifulSoup(page.content, 'html.parser')
     title = soup.find('h1').get_text()
-    
-    # article_text = soup.find_all(['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'])
     article_text = text_from_html(requests.get(article).content)
-    # concat_text = ""
-    # for tag in article_text:
-    #     concat_text += tag.get_text()
-    print("###########")
-    print(title)
-    print(article_text)
+    # print("###########")
+    # print(title)
+    # print(article_text)
 
     positive_list = []
     neutral_list = []
