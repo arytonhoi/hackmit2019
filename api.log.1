@@ -1,25 +1,53 @@
 Exception on /views/results [POST]
 Traceback (most recent call last):
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/home/matt/venv/lib/python3.7/site-packages/flask_restplus/api.py", line 583, in error_router
-    return original_handler(e)
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1718, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/_compat.py", line 35, in reraise
-    raise value
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/matt/counter_point/app/views.py", line 33, in get_results
-    article_text = text_from_html(soup)
-  File "/home/matt/counter_point/app/utils.py", line 75, in text_from_html
-    soup = BeautifulSoup(body, 'html.parser')
-NameError: name 'BeautifulSoup' is not defined
-Exception on /views/results [POST]
+  File "/home/matt/venv/lib/python3.7/site-packages/urllib3/connection.py", line 160, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw)
+  File "/home/matt/venv/lib/python3.7/site-packages/urllib3/util/connection.py", line 57, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "/home/matt/venv/lib/python3.7/site-packages/gevent/_socketcommon.py", line 212, in getaddrinfo
+    addrlist = get_hub().resolver.getaddrinfo(host, port, family, type, proto, flags)
+  File "/home/matt/venv/lib/python3.7/site-packages/gevent/resolver/thread.py", line 65, in getaddrinfo
+    return self.pool.apply(_socket.getaddrinfo, args, kwargs)
+  File "/home/matt/venv/lib/python3.7/site-packages/gevent/pool.py", line 159, in apply
+    return self.spawn(func, *args, **kwds).get()
+  File "src/gevent/event.py", line 268, in gevent._event.AsyncResult.get
+  File "src/gevent/event.py", line 296, in gevent._event.AsyncResult.get
+  File "src/gevent/event.py", line 286, in gevent._event.AsyncResult.get
+  File "src/gevent/event.py", line 266, in gevent._event.AsyncResult._raise_exception
+  File "/home/matt/venv/lib/python3.7/site-packages/gevent/_compat.py", line 47, in reraise
+    raise value.with_traceback(tb)
+  File "/home/matt/venv/lib/python3.7/site-packages/gevent/threadpool.py", line 281, in _worker
+    value = func(*args, **kwargs)
+socket.gaierror: [Errno -3] Temporary failure in name resolution
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/matt/venv/lib/python3.7/site-packages/urllib3/connectionpool.py", line 603, in urlopen
+    chunked=chunked)
+  File "/home/matt/venv/lib/python3.7/site-packages/urllib3/connectionpool.py", line 344, in _make_request
+    self._validate_conn(conn)
+  File "/home/matt/venv/lib/python3.7/site-packages/urllib3/connectionpool.py", line 843, in _validate_conn
+    conn.connect()
+  File "/home/matt/venv/lib/python3.7/site-packages/urllib3/connection.py", line 316, in connect
+    conn = self._new_conn()
+  File "/home/matt/venv/lib/python3.7/site-packages/urllib3/connection.py", line 169, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: <urllib3.connection.VerifiedHTTPSConnection object at 0x7f2d8c823fd0>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/matt/venv/lib/python3.7/site-packages/requests/adapters.py", line 449, in send
+    timeout=timeout
+  File "/home/matt/venv/lib/python3.7/site-packages/urllib3/connectionpool.py", line 641, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "/home/matt/venv/lib/python3.7/site-packages/urllib3/util/retry.py", line 399, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='www.cnn.com', port=443): Max retries exceeded with url: /2019/09/14/politics/pompeo-drone-strikes-saudi-oil/index.html (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x7f2d8c823fd0>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+
+During handling of the above exception, another exception occurred:
+
 Traceback (most recent call last):
   File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -35,121 +63,16 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/matt/counter_point/app/views.py", line 33, in get_results
-    article_text = text_from_html(soup)
-  File "/home/matt/counter_point/app/utils.py", line 76, in text_from_html
-    soup = BeautifulSoup(body, 'html.parser')
-  File "/home/matt/venv/lib/python3.7/site-packages/bs4/__init__.py", line 266, in __init__
-    markup = markup.read()
-TypeError: 'NoneType' object is not callable
-Exception on /views/results [POST]
-Traceback (most recent call last):
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/home/matt/venv/lib/python3.7/site-packages/flask_restplus/api.py", line 583, in error_router
-    return original_handler(e)
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1718, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/_compat.py", line 35, in reraise
-    raise value
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/matt/counter_point/app/views.py", line 33, in get_results
-    article_text = text_from_html(requests.get(article))
-  File "/home/matt/counter_point/app/utils.py", line 76, in text_from_html
-    soup = BeautifulSoup(body, 'html.parser')
-  File "/home/matt/venv/lib/python3.7/site-packages/bs4/__init__.py", line 267, in __init__
-    elif len(markup) <= 256 and (
-TypeError: object of type 'Response' has no len()
-Exception on /views/results [POST]
-Traceback (most recent call last):
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/home/matt/venv/lib/python3.7/site-packages/flask_restplus/api.py", line 583, in error_router
-    return original_handler(e)
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1718, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/_compat.py", line 35, in reraise
-    raise value
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/matt/counter_point/app/views.py", line 33, in get_results
-    article_text = text_from_html(requests.get(article).content)
-  File "/home/matt/counter_point/app/utils.py", line 79, in text_from_html
-    return u" ".join(t.strip() for t in visible_texts)
-  File "/home/matt/counter_point/app/utils.py", line 79, in <genexpr>
-    return u" ".join(t.strip() for t in visible_texts)
-  File "/home/matt/counter_point/app/utils.py", line 71, in tag_visible
-    if isinstance(element, Comment):
-NameError: name 'Comment' is not defined
-Exception on /views/results [POST]
-Traceback (most recent call last):
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/home/matt/venv/lib/python3.7/site-packages/flask_restplus/api.py", line 583, in error_router
-    return original_handler(e)
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1718, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/_compat.py", line 35, in reraise
-    raise value
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/matt/counter_point/app/views.py", line 33, in get_results
-    article_text = text_from_html(requests.get(article).content)
-  File "/home/matt/counter_point/app/utils.py", line 81, in text_from_html
-    right_bound = len(visible_texts)
-TypeError: object of type 'filter' has no len()
-Exception on /views/results [POST]
-Traceback (most recent call last):
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/home/matt/venv/lib/python3.7/site-packages/flask_restplus/api.py", line 583, in error_router
-    return original_handler(e)
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1718, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/_compat.py", line 35, in reraise
-    raise value
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/matt/counter_point/app/views.py", line 33, in get_results
-    article_text = text_from_html(requests.get(article).content)
-  File "/home/matt/counter_point/app/utils.py", line 83, in text_from_html
-    if len(visible_texts[i] > 25):
-TypeError: '>' not supported between instances of 'NavigableString' and 'int'
-Exception on /views/results [POST]
-Traceback (most recent call last):
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/home/matt/venv/lib/python3.7/site-packages/flask_restplus/api.py", line 583, in error_router
-    return original_handler(e)
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1718, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/_compat.py", line 35, in reraise
-    raise value
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/matt/counter_point/app/views.py", line 33, in get_results
-    article_text = text_from_html(requests.get(article).content)
-  File "/home/matt/counter_point/app/utils.py", line 87, in text_from_html
-    for j in range(len(visible_texts)).reverse():
-AttributeError: 'range' object has no attribute 'reverse'
+  File "/home/matt/counter_point/app/views.py", line 29, in get_results
+    page = requests.get(article)
+  File "/home/matt/venv/lib/python3.7/site-packages/requests/api.py", line 75, in get
+    return request('get', url, params=params, **kwargs)
+  File "/home/matt/venv/lib/python3.7/site-packages/requests/api.py", line 60, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/matt/venv/lib/python3.7/site-packages/requests/sessions.py", line 533, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/matt/venv/lib/python3.7/site-packages/requests/sessions.py", line 646, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/matt/venv/lib/python3.7/site-packages/requests/adapters.py", line 516, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='www.cnn.com', port=443): Max retries exceeded with url: /2019/09/14/politics/pompeo-drone-strikes-saudi-oil/index.html (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x7f2d8c823fd0>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))

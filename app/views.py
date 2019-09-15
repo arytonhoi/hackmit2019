@@ -39,9 +39,10 @@ def get_results():
     negative_list = []
 
     a = Article(article, title, article_text)
+    print(a.news_source)
     a.print_topic_info()
     
     try:
-        return render_template('results.html', url=article, article=('%.40s' % article), positive_list=positive_list, neutral_list=neutral_list, negative_list=negative_list)
+        return render_template('results.html', url=article, article=('%.60s' % article), positive_list=positive_list, neutral_list=neutral_list, negative_list=negative_list)
     except TemplateNotFound:
         abort(404)
