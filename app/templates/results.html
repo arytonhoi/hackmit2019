@@ -3,9 +3,26 @@
 </head>
 {% block body %}
 <div class="hero-image">
-    <div class="hero-text">
-        <h1>Counter Point</h1>
-        <h2>{{ article }}</h2>
+    <div id="results" class="results-text">
+        <h3>Results</h3>
+        <h2><a href="{{ url }}">{{ article }}</a> - XX% Reputatble</h2>
+    </div>
+        <div class="results-section">
+            <div class="col-3">
+                <h4>-</h4>
+                <!-- loop here -->
+                <div>
+                    <div class="confidence-num">NUM</div>
+                    <a href="http://google.com" class="returned-url">url.url</a>
+                </div>
+            </div>
+            <div class="col-3">
+                <h4>0</h4>
+            </div>
+            <div class="col-3">
+                <h4>+</h4>
+            </div>
+        </div>
     </div>
 </div>
 {% endblock %}

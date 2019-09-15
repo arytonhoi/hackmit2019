@@ -1,4 +1,4 @@
-Exception on /views/home [GET]
+Exception on /views/results [POST]
 Traceback (most recent call last):
   File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -14,34 +14,12 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/matt/counter_point/app/views.py", line 18, in get_test
-    return render_template('home.html')
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/templating.py", line 135, in render_template
-    context, ctx.app)
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/templating.py", line 117, in _render
-    rv = template.render(context)
-  File "/home/matt/venv/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
-    return original_render(self, *args, **kwargs)
-  File "/home/matt/venv/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
-    return self.environment.handle_exception(exc_info, True)
-  File "/home/matt/venv/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
-    reraise(exc_type, exc_value, tb)
-  File "/home/matt/venv/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
-    raise value.with_traceback(tb)
-  File "/home/matt/counter_point/app/templates/home.html", line 18, in top-level template code
-    <form action="{{ url_for('results')}}" method="post">
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/helpers.py", line 356, in url_for
-    return appctx.app.handle_url_build_error(error, endpoint, values)
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 2061, in handle_url_build_error
-    reraise(exc_type, exc_value, tb)
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/_compat.py", line 35, in reraise
-    raise value
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/helpers.py", line 345, in url_for
-    force_external=external)
-  File "/home/matt/venv/lib/python3.7/site-packages/werkzeug/routing.py", line 2020, in build
-    raise BuildError(endpoint, values, method, self)
-werkzeug.routing.BuildError: Could not build url for endpoint 'results'. Did you mean 'sample_page.get_results' instead?
-Exception on /views/home [GET]
+  File "/home/matt/counter_point/app/views.py", line 33, in get_results
+    article_text = text_from_html(soup)
+  File "/home/matt/counter_point/app/utils.py", line 75, in text_from_html
+    soup = BeautifulSoup(body, 'html.parser')
+NameError: name 'BeautifulSoup' is not defined
+Exception on /views/results [POST]
 Traceback (most recent call last):
   File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -57,34 +35,14 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/matt/counter_point/app/views.py", line 18, in get_test
-    return render_template('home.html')
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/templating.py", line 135, in render_template
-    context, ctx.app)
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/templating.py", line 117, in _render
-    rv = template.render(context)
-  File "/home/matt/venv/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
-    return original_render(self, *args, **kwargs)
-  File "/home/matt/venv/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
-    return self.environment.handle_exception(exc_info, True)
-  File "/home/matt/venv/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
-    reraise(exc_type, exc_value, tb)
-  File "/home/matt/venv/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
-    raise value.with_traceback(tb)
-  File "/home/matt/counter_point/app/templates/home.html", line 18, in top-level template code
-    <form action="{{ url_for('results')}}" method="post">
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/helpers.py", line 356, in url_for
-    return appctx.app.handle_url_build_error(error, endpoint, values)
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 2061, in handle_url_build_error
-    reraise(exc_type, exc_value, tb)
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/_compat.py", line 35, in reraise
-    raise value
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/helpers.py", line 345, in url_for
-    force_external=external)
-  File "/home/matt/venv/lib/python3.7/site-packages/werkzeug/routing.py", line 2020, in build
-    raise BuildError(endpoint, values, method, self)
-werkzeug.routing.BuildError: Could not build url for endpoint 'results'. Did you mean 'sample_page.get_results' instead?
-Exception on /views/home [GET]
+  File "/home/matt/counter_point/app/views.py", line 33, in get_results
+    article_text = text_from_html(soup)
+  File "/home/matt/counter_point/app/utils.py", line 76, in text_from_html
+    soup = BeautifulSoup(body, 'html.parser')
+  File "/home/matt/venv/lib/python3.7/site-packages/bs4/__init__.py", line 266, in __init__
+    markup = markup.read()
+TypeError: 'NoneType' object is not callable
+Exception on /views/results [POST]
 Traceback (most recent call last):
   File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -100,30 +58,98 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/matt/counter_point/app/views.py", line 18, in get_test
-    return render_template('home.html')
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/templating.py", line 135, in render_template
-    context, ctx.app)
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/templating.py", line 117, in _render
-    rv = template.render(context)
-  File "/home/matt/venv/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
-    return original_render(self, *args, **kwargs)
-  File "/home/matt/venv/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
-    return self.environment.handle_exception(exc_info, True)
-  File "/home/matt/venv/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
-    reraise(exc_type, exc_value, tb)
-  File "/home/matt/venv/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
-    raise value.with_traceback(tb)
-  File "/home/matt/counter_point/app/templates/home.html", line 18, in top-level template code
-    <form action="{{ url_for('results')}}" method="post">
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/helpers.py", line 356, in url_for
-    return appctx.app.handle_url_build_error(error, endpoint, values)
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 2061, in handle_url_build_error
+  File "/home/matt/counter_point/app/views.py", line 33, in get_results
+    article_text = text_from_html(requests.get(article))
+  File "/home/matt/counter_point/app/utils.py", line 76, in text_from_html
+    soup = BeautifulSoup(body, 'html.parser')
+  File "/home/matt/venv/lib/python3.7/site-packages/bs4/__init__.py", line 267, in __init__
+    elif len(markup) <= 256 and (
+TypeError: object of type 'Response' has no len()
+Exception on /views/results [POST]
+Traceback (most recent call last):
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/matt/venv/lib/python3.7/site-packages/flask_restplus/api.py", line 583, in error_router
+    return original_handler(e)
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1718, in handle_user_exception
     reraise(exc_type, exc_value, tb)
   File "/home/matt/venv/lib/python3.7/site-packages/flask/_compat.py", line 35, in reraise
     raise value
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/helpers.py", line 345, in url_for
-    force_external=external)
-  File "/home/matt/venv/lib/python3.7/site-packages/werkzeug/routing.py", line 2020, in build
-    raise BuildError(endpoint, values, method, self)
-werkzeug.routing.BuildError: Could not build url for endpoint 'results'. Did you mean 'sample_page.get_results' instead?
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/matt/counter_point/app/views.py", line 33, in get_results
+    article_text = text_from_html(requests.get(article).content)
+  File "/home/matt/counter_point/app/utils.py", line 79, in text_from_html
+    return u" ".join(t.strip() for t in visible_texts)
+  File "/home/matt/counter_point/app/utils.py", line 79, in <genexpr>
+    return u" ".join(t.strip() for t in visible_texts)
+  File "/home/matt/counter_point/app/utils.py", line 71, in tag_visible
+    if isinstance(element, Comment):
+NameError: name 'Comment' is not defined
+Exception on /views/results [POST]
+Traceback (most recent call last):
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/matt/venv/lib/python3.7/site-packages/flask_restplus/api.py", line 583, in error_router
+    return original_handler(e)
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/matt/counter_point/app/views.py", line 33, in get_results
+    article_text = text_from_html(requests.get(article).content)
+  File "/home/matt/counter_point/app/utils.py", line 81, in text_from_html
+    right_bound = len(visible_texts)
+TypeError: object of type 'filter' has no len()
+Exception on /views/results [POST]
+Traceback (most recent call last):
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/matt/venv/lib/python3.7/site-packages/flask_restplus/api.py", line 583, in error_router
+    return original_handler(e)
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/matt/counter_point/app/views.py", line 33, in get_results
+    article_text = text_from_html(requests.get(article).content)
+  File "/home/matt/counter_point/app/utils.py", line 83, in text_from_html
+    if len(visible_texts[i] > 25):
+TypeError: '>' not supported between instances of 'NavigableString' and 'int'
+Exception on /views/results [POST]
+Traceback (most recent call last):
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/matt/venv/lib/python3.7/site-packages/flask_restplus/api.py", line 583, in error_router
+    return original_handler(e)
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/matt/counter_point/app/views.py", line 33, in get_results
+    article_text = text_from_html(requests.get(article).content)
+  File "/home/matt/counter_point/app/utils.py", line 87, in text_from_html
+    for j in range(len(visible_texts)).reverse():
+AttributeError: 'range' object has no attribute 'reverse'
