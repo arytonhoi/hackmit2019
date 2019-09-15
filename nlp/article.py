@@ -65,5 +65,5 @@ if __name__ == '__main__':
 
     a = Article('rip.com',title,content)    
     print(a.text_content)
-    a.get_topics()
+    # a.get_topics()
     a.print_topic_info()
