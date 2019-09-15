@@ -23,25 +23,38 @@ def get_test():
     except TemplateNotFound:
         abort(404)
 
+def create_article(article_url):
+        page = requests.get(article_url)
+        soup = BeautifulSoup(page.content, 'html.parser')
+
+        # title = soup.find('h1').get_text() if soup.find('h1') else None
+        title = soup.find_all("h1", class_="balancedHeadLine pg-headline headLine headline title").get_text()
+        if not title:
+            title = None
+        article_text = text_from_html(requests.get(article_url).content)
+
+        return Article(article_url, title, article_text,get_topics=False)
+
 @sample_page.route('/results', methods=['POST'])
 def get_results():
-    article = request.form['article']
-    page = requests.get(article)
-    soup = BeautifulSoup(page.content, 'html.parser')
-    if soup.find('h1'):
-        title = soup.find('h1').get_text()
-    else:
-        title = ""
-    article_text = text_from_html(requests.get(article).content)
-    print("###########")
-    print(soup.findAll(text=True))
+    article_url = request.form['article']
+    # page = requests.get(article)
+    # soup = BeautifulSoup(page.content, 'html.parser')
+    # if soup.find('h1'):
+    #     title = soup.find('h1').get_text()
+    # else:
+    #     title = ""
+    # article_text = text_from_html(requests.get(article).content)
+    # print("###########")
+    # print(soup.findAll(text=True))
     # print(article_text)
+    input_article = create_article(article_url)
 
-    positive_list = []
-    neutral_list = []
-    negative_list = []
+    # liberal_urls = []
+    # neutral_list = []
+    # conservative_list = []
 
-    a = Article(article, title, article_text)
+    # a = Article(article, title, article_text)
     # print(a.news_source)
     # a.print_topic_info()
 
@@ -66,11 +79,25 @@ def get_results():
     #     else:
     #         neutral_list.append(article)
 
-    negative_list = a.get_disagreeing_articles()
-    neutral_list = a.get_neutral_articles()
-    positive_list = a.get_agreeing_articles()
+    liberal_urls = input_article.get_liberal_articles()
+    neutral_urls = input_article.get_neutral_articles()
+    conservative_urls = input_article.get_conservative_articles()
+
+    liberal_articles = []
+    neutral_articles = []
+    conservative_articles = []
+
+    for liberal_url in liberal_urls:
+        liberal_articles.append(create_article(liberal_url))
+    for neutral_url in neutral_urls:
+        neutral_articles.append(create_article(neutral_url))
+    for conservative_url in conservative_urls:
+        conservative_articles.append(create_article(conservative_url))
 
     try:
-        return render_template('results.html', main_article=a, article_trunc=('%.40s' % a.url), positive_list=positive_list, neutral_list=neutral_list, negative_list=negative_list)
+        # return render_template('results.html', main_article=input_article, article_trunc=('%.40s' % a.url), 
+        #                 positive_list=positive_list, neutral_list=neutral_list, negative_list=negative_list)
+        return render_template('results.html', main_article=input_article, 
+                    liberal_articles=liberal_articles, neutral_articles=neutral_articles, conservative_articles=conservative_articles)
     except TemplateNotFound:
         abort(404)
