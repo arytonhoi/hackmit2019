@@ -58,7 +58,7 @@ class Article:
         return keywords[:num]
 
     # form query from keywords
-    def make_gsearch_query(self,sources=None,amount=2):
+    def make_gsearch_query(self,sources=None,amount=10):
         query = ""
         keywords = self.get_keywords()
         for count,keyword in enumerate(keywords):
