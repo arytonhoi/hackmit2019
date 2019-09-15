@@ -1,9 +1,5 @@
-<<<<<<< HEAD
 from counter_point.nlp.nlp import NLP
-=======
-from nlp import NLP
 import tldextract #library for url domain name extraction
->>>>>>> c88bf7b8581880367747e463f35228a832df3221
 
 # represents an Article
 class Article:
