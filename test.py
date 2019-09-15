@@ -1,8 +1,8 @@
 from nlp.article import Article
 
 if __name__ == '__main__':
-  url = 'https://www.foxnews.com/politics/california-newsom-abortion-pill-bill-public-university-campus'
-  title = 'California bill on \'abortion pill\' access at public universities goes to governor\'s desk'
+  url = 'https://www.cnn.com/2019/09/11/politics/wiliam-bill-happer-leaves-national-security-council-donald-trump/index.html'
+  title = 'Climate change skeptic leaves White House National Security Council'
   with open('fox1.txt', 'r') as file:
     content = file.read().replace('\n', '')
 
