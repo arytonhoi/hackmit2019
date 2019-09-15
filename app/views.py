@@ -39,8 +39,16 @@ def get_results():
     negative_list = []
 
     a = Article(article, title, article_text)
-    print(a.news_source)
-    a.print_topic_info()
+    # print(a.news_source)
+    # a.print_topic_info()
+
+    result_urls = []
+    result_articles = []
+    for url in result_urls:
+        temp_page = requests.get(url).content
+        temp_soup = BeautifulSoup(temp_page, 'html.parser')
+        temp_title = temp_soup.find('h1').get_text()
+        result_articles.append(Article(url, temp_title, text_from_html(temp_page)))
     
     try:
         return render_template('results.html', url=article, article_trunc=('%.60s' % article), positive_list=positive_list, neutral_list=neutral_list, negative_list=negative_list)
