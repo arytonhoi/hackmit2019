@@ -89,6 +89,7 @@ h4 {
   left: 50%;
   color: white;
   font-size: 200%;
+  overflow: hidden;
 }
 
 .returned-url {
