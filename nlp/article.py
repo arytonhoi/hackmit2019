@@ -27,6 +27,7 @@ class Article:
     
     def get_document_sentiment(self):
         self.document_sentiment = self.nlp.get_whole_sentiment(self.text_content,language='en') 
+        self.document_sentiment.score = 50 * (self.document_sentiment.score + 1.0)
         print('score {} mag{}'.format(self.document_sentiment.score, self.document_sentiment.magnitude))
         return None
    
@@ -53,7 +54,7 @@ class Article:
         return keywords[:num]
 
     # form query from keywords
-    def make_gsearch_query(self,num_results=3):
+    def make_gsearch_query(self,num_results=6):
         query = ""
         keywords = self.get_keywords()
         for count,keyword in enumerate(keywords):

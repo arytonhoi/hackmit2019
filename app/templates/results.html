@@ -5,14 +5,14 @@
 <div class="hero-image">
     <div id="results" class="results-text">
         <h3>Results</h3>
-        <h2><a href="{{ url }}">{{ article_trunc }}</a></h2>
+        <h2><a href="{{ main_article.url }}">{{ article_trunc }} - {{ main_article.document_sentiment.score }}</a></h2>
     </div>
         <div class="results-section">
             <div class="col-3">
                 <h4>-</h4>
                 {% for article in negative_list %}
                 <div class="result-row">
-                    <div class="confidence-num">{{ article.confidence }}</div>
+                    <div class="confidence-num">{{ article.document_sentiment.score }}</div>
                     <a href="{{ article.url }}" class="returned-url">{{ article.url }}</a>
                 </div>
                 {% endfor %}
@@ -21,7 +21,7 @@
                 <h4>Ø</h4>
                 {% for article in neutral_list %}
                 <div class="result-row">
-                    <div class="confidence-num">{{ article.confidence }}</div>
+                    <div class="confidence-num">{{ article.document_sentiment.score }}</div>
                     <a href="{{ article.url }}" class="returned-url">{{ article.url }}</a>
                 </div>
                 {% endfor %}
@@ -30,7 +30,7 @@
                 <h4>+</h4>
                 {% for article in positive_list %}
                 <div class="result-row">
-                    <div class="confidence-num">{{ article.confidence }}</div>
+                    <div class="confidence-num">{{ article.document_sentiment.score }}</div>
                     <a href="{{ article.url }}" class="returned-url">{{ article.url }}</a>
                 </div>
                 {% endfor %}
