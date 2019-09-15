@@ -62,7 +62,6 @@ class Article:
                                     topic.sentiment.magnitude))
 
 
-<<<<<<< HEAD
 # if __name__ == '__main__':
 #     title = 'A plan to end gun violence from students who survived it'
 #     content = 'They demanded change and ignited a grass-roots movement that has given youthful new vigor to the fight for gun safety. Now, these young activists have put forward a bold gun-control proposal that aims to reframe the debate on gun policy.'
@@ -71,14 +70,3 @@ class Article:
 #     print(a.text_content)
 #     a.get_topics()
 #     a.print_info()
-=======
-if __name__ == '__main__':
-    url = 'https://beta.washingtonpost.com/opinions/a-plan-to-end-gun-violence-from-students-who-survived-it/2019/08/22/bd2d25b8-c44b-11e9-9986-1fb3e4397be4_story.html'
-    title = 'A plan to end gun violence from students who survived it'
-    content = 'They demanded change and ignited a grass-roots movement that has given youthful new vigor to the fight for gun safety. Now, these young activists have put forward a bold gun-control proposal that aims to reframe the debate on gun policy.'
-
-    a = Article('rip.com',title,content)    
-    print(a.text_content)
-    a.get_topics()
-    a.print_topic_info()
->>>>>>> c88bf7b8581880367747e463f35228a832df3221
