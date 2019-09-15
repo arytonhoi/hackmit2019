@@ -3,6 +3,7 @@ from jinja2 import TemplateNotFound
 from bs4 import BeautifulSoup
 import requests
 from .utils import text_from_html
+from counter_point.nlp.article import Article
 
 sample_page = Blueprint('sample_page', 'sample_page', template_folder='templates')
 home_page = Blueprint('home_page', 'home_page', template_folder='templates')
@@ -36,6 +37,9 @@ def get_results():
     positive_list = []
     neutral_list = []
     negative_list = []
+
+    a = Article(article, title, article_text)
+    a.print_info()
     
     try:
         return render_template('results.html', url=article, article=('%.40s' % article), positive_list=positive_list, neutral_list=neutral_list, negative_list=negative_list)

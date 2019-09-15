@@ -2,7 +2,7 @@
 from google.cloud import language
 from google.cloud.language import enums
 from google.cloud.language import types
-from topic import Topic
+from counter_point.nlp.topic import Topic
 
 class NLP:
     # Constructor
