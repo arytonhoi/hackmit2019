@@ -1,131 +1,135 @@
 Exception on /views/results [POST]
 Traceback (most recent call last):
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 2292, in wsgi_app
+  File "/home/aryton/Kode/counter_point/venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1815, in full_dispatch_request
+  File "/home/aryton/Kode/counter_point/venv/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File "/home/matt/venv/lib/python3.7/site-packages/flask_restplus/api.py", line 583, in error_router
+  File "/home/aryton/Kode/counter_point/venv/lib/python3.6/site-packages/flask_restplus/api.py", line 583, in error_router
     return original_handler(e)
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1718, in handle_user_exception
+  File "/home/aryton/Kode/counter_point/venv/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
     reraise(exc_type, exc_value, tb)
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/_compat.py", line 35, in reraise
+  File "/home/aryton/Kode/counter_point/venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
     raise value
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1813, in full_dispatch_request
+  File "/home/aryton/Kode/counter_point/venv/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
     rv = self.dispatch_request()
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
+  File "/home/aryton/Kode/counter_point/venv/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/matt/counter_point/app/views.py", line 64, in get_results
-    return render_template('results.html', main_article=a, article_trunc=('%.40s' % main_article), positive_list=positive_list, neutral_list=neutral_list, negative_list=negative_list)
-NameError: name 'main_article' is not defined
+  File "/home/aryton/Kode/counter_point/app/views.py", line 39, in get_results
+    input_article = create_article(article_url)
+UnboundLocalError: local variable 'create_article' referenced before assignment
 Exception on /views/results [POST]
 Traceback (most recent call last):
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 2292, in wsgi_app
+  File "/home/aryton/Kode/counter_point/venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1815, in full_dispatch_request
+  File "/home/aryton/Kode/counter_point/venv/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File "/home/matt/venv/lib/python3.7/site-packages/flask_restplus/api.py", line 583, in error_router
+  File "/home/aryton/Kode/counter_point/venv/lib/python3.6/site-packages/flask_restplus/api.py", line 583, in error_router
     return original_handler(e)
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1718, in handle_user_exception
+  File "/home/aryton/Kode/counter_point/venv/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
     reraise(exc_type, exc_value, tb)
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/_compat.py", line 35, in reraise
+  File "/home/aryton/Kode/counter_point/venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
     raise value
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1813, in full_dispatch_request
+  File "/home/aryton/Kode/counter_point/venv/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
     rv = self.dispatch_request()
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
+  File "/home/aryton/Kode/counter_point/venv/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/matt/counter_point/app/views.py", line 50, in get_results
-    temp_title = temp_soup.find('h1').get_text()
-AttributeError: 'NoneType' object has no attribute 'get_text'
+  File "/home/aryton/Kode/counter_point/app/views.py", line 39, in get_results
+    input_article = create_article(article_url)
+UnboundLocalError: local variable 'create_article' referenced before assignment
 Exception on /views/results [POST]
 Traceback (most recent call last):
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 2292, in wsgi_app
+  File "/home/aryton/Kode/counter_point/venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1815, in full_dispatch_request
+  File "/home/aryton/Kode/counter_point/venv/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File "/home/matt/venv/lib/python3.7/site-packages/flask_restplus/api.py", line 583, in error_router
+  File "/home/aryton/Kode/counter_point/venv/lib/python3.6/site-packages/flask_restplus/api.py", line 583, in error_router
     return original_handler(e)
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1718, in handle_user_exception
+  File "/home/aryton/Kode/counter_point/venv/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
     reraise(exc_type, exc_value, tb)
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/_compat.py", line 35, in reraise
+  File "/home/aryton/Kode/counter_point/venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
     raise value
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1813, in full_dispatch_request
+  File "/home/aryton/Kode/counter_point/venv/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
     rv = self.dispatch_request()
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
+  File "/home/aryton/Kode/counter_point/venv/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/matt/counter_point/app/views.py", line 53, in get_results
-    temp_title = temp_soup.find('h1').get_text()
-AttributeError: 'NoneType' object has no attribute 'get_text'
+  File "/home/aryton/Kode/counter_point/app/views.py", line 39, in get_results
+    input_article = create_article(article_url)
+UnboundLocalError: local variable 'create_article' referenced before assignment
 Exception on /views/results [POST]
 Traceback (most recent call last):
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 2292, in wsgi_app
+  File "/home/aryton/Kode/counter_point/venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1815, in full_dispatch_request
+  File "/home/aryton/Kode/counter_point/venv/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File "/home/matt/venv/lib/python3.7/site-packages/flask_restplus/api.py", line 583, in error_router
+  File "/home/aryton/Kode/counter_point/venv/lib/python3.6/site-packages/flask_restplus/api.py", line 583, in error_router
     return original_handler(e)
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1718, in handle_user_exception
+  File "/home/aryton/Kode/counter_point/venv/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
     reraise(exc_type, exc_value, tb)
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/_compat.py", line 35, in reraise
+  File "/home/aryton/Kode/counter_point/venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
     raise value
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1813, in full_dispatch_request
+  File "/home/aryton/Kode/counter_point/venv/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
     rv = self.dispatch_request()
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
+  File "/home/aryton/Kode/counter_point/venv/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/matt/counter_point/app/views.py", line 74, in get_results
-    return render_template('results.html', main_article=a, article_trunc=('%.40s' % a.url), positive_list=positive_list, neutral_list=neutral_list, negative_list=negative_list)
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/templating.py", line 135, in render_template
-    context, ctx.app)
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/templating.py", line 117, in _render
-    rv = template.render(context)
-  File "/home/matt/venv/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
-    return original_render(self, *args, **kwargs)
-  File "/home/matt/venv/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
-    return self.environment.handle_exception(exc_info, True)
-  File "/home/matt/venv/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
-    reraise(exc_type, exc_value, tb)
-  File "/home/matt/venv/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
-    raise value.with_traceback(tb)
-  File "/home/matt/counter_point/app/templates/results.html", line 4, in top-level template code
-    {% block body %}
-  File "/home/matt/counter_point/app/templates/results.html", line 15, in block "body"
-    <div class="confidence-num">{{ article.document_sentiment.score }}</div>
-  File "/home/matt/venv/lib/python3.7/site-packages/jinja2/environment.py", line 430, in getattr
-    return getattr(obj, attribute)
-jinja2.exceptions.UndefinedError: 'str object' has no attribute 'document_sentiment'
+  File "/home/aryton/Kode/counter_point/app/views.py", line 48, in get_results
+    input_article = create_article(article_url)
+  File "/home/aryton/Kode/counter_point/app/views.py", line 31, in create_article
+    article_text = text_from_html(requests.get(article).content)
+NameError: name 'article' is not defined
 Exception on /views/results [POST]
 Traceback (most recent call last):
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 2292, in wsgi_app
+  File "/home/aryton/Kode/counter_point/venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1815, in full_dispatch_request
+  File "/home/aryton/Kode/counter_point/venv/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File "/home/matt/venv/lib/python3.7/site-packages/flask_restplus/api.py", line 583, in error_router
+  File "/home/aryton/Kode/counter_point/venv/lib/python3.6/site-packages/flask_restplus/api.py", line 583, in error_router
     return original_handler(e)
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1718, in handle_user_exception
+  File "/home/aryton/Kode/counter_point/venv/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
     reraise(exc_type, exc_value, tb)
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/_compat.py", line 35, in reraise
+  File "/home/aryton/Kode/counter_point/venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
     raise value
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1813, in full_dispatch_request
+  File "/home/aryton/Kode/counter_point/venv/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
     rv = self.dispatch_request()
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
+  File "/home/aryton/Kode/counter_point/venv/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/matt/counter_point/app/views.py", line 74, in get_results
-    return render_template('results.html', main_article=a, article_trunc=('%.40s' % a.url), positive_list=positive_list, neutral_list=neutral_list, negative_list=negative_list)
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/templating.py", line 135, in render_template
-    context, ctx.app)
-  File "/home/matt/venv/lib/python3.7/site-packages/flask/templating.py", line 117, in _render
-    rv = template.render(context)
-  File "/home/matt/venv/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
-    return original_render(self, *args, **kwargs)
-  File "/home/matt/venv/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
-    return self.environment.handle_exception(exc_info, True)
-  File "/home/matt/venv/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+  File "/home/aryton/Kode/counter_point/app/views.py", line 90, in get_results
+    neutral_articles.append(create_article(neutral_url))
+AttributeError: 'str' object has no attribute 'append'
+Exception on /views/results [POST]
+Traceback (most recent call last):
+  File "/home/aryton/Kode/counter_point/venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/aryton/Kode/counter_point/venv/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/aryton/Kode/counter_point/venv/lib/python3.6/site-packages/flask_restplus/api.py", line 583, in error_router
+    return original_handler(e)
+  File "/home/aryton/Kode/counter_point/venv/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
     reraise(exc_type, exc_value, tb)
-  File "/home/matt/venv/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
-    raise value.with_traceback(tb)
-  File "/home/matt/counter_point/app/templates/results.html", line 4, in top-level template code
-    {% block body %}
-  File "/home/matt/counter_point/app/templates/results.html", line 15, in block "body"
-    <!-- <div class="confidence-num">{{ article.document_sentiment.score }}</div> -->
-  File "/home/matt/venv/lib/python3.7/site-packages/jinja2/environment.py", line 430, in getattr
-    return getattr(obj, attribute)
-jinja2.exceptions.UndefinedError: 'str object' has no attribute 'document_sentiment'
+  File "/home/aryton/Kode/counter_point/venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/aryton/Kode/counter_point/venv/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/aryton/Kode/counter_point/venv/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/aryton/Kode/counter_point/app/views.py", line 98, in get_results
+    return render_template('results.html', main_article=input_article, article_trunc=('%.40s' % a.url),
+NameError: name 'a' is not defined
+Exception on /views/results [POST]
+Traceback (most recent call last):
+  File "/home/aryton/Kode/counter_point/venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/aryton/Kode/counter_point/venv/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/aryton/Kode/counter_point/venv/lib/python3.6/site-packages/flask_restplus/api.py", line 583, in error_router
+    return original_handler(e)
+  File "/home/aryton/Kode/counter_point/venv/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/aryton/Kode/counter_point/venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/aryton/Kode/counter_point/venv/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/aryton/Kode/counter_point/venv/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/aryton/Kode/counter_point/app/views.py", line 99, in get_results
+    positive_list=positive_list, neutral_list=neutral_list, negative_list=negative_list)
+NameError: name 'positive_list' is not defined

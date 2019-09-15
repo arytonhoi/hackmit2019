@@ -10,7 +10,7 @@ conservative_sources = ['foxnews.com','nationalreview.com','washingtontimes.com'
 # represents an Article
 class Article:
     # Constructor
-    def __init__(self, url=None,title=None,text_content=None):
+    def __init__(self, url=None,title=None,text_content=None,get_topics=True):
         self.url = url # url of article
         self.title = title
         self.text_content = text_content # article text
@@ -22,11 +22,12 @@ class Article:
         self.title_topics = [] # list of topics from title
         self.citations = [] #list of citation objects
         self.document_sentiment = None
-
-        self.nlp = NLP()
+        
         self.get_source_name()
-        self.get_topics()
-        self.get_document_sentiment()
+        if get_topics:
+            self.nlp = NLP()
+            self.get_topics()
+            self.get_document_sentiment()
     
     def get_document_sentiment(self):
         self.document_sentiment = self.nlp.get_whole_sentiment(self.text_content,language='en') 
@@ -91,11 +92,12 @@ class Article:
         return related_article_urls
         
     # Gets other articles that agree with this one
-    def get_agreeing_articles(self,amount=5):
-        if self.source_base_url in liberal_sources:
-            return self.make_gsearch_query(sources=liberal_sources,amount=amount)
-        else:
-            return self.make_gsearch_query(sources=conservative_sources,amount=amount)
+    def get_liberal_articles(self,amount=5):
+        # if self.source_base_url in liberal_sources:
+        #     return self.make_gsearch_query(sources=liberal_sources,amount=amount)
+        # else:
+        #     return self.make_gsearch_query(sources=conservative_sources,amount=amount)
+        return self.make_gsearch_query(sources=liberal_sources,amount=amount)
 
     # Gets other articles that are neutral on this one's topic
     def get_neutral_articles(self,amount=5):
@@ -103,11 +105,8 @@ class Article:
 
     # Gets other articles that disagree with this one's stance
     # on the topic
-    def get_disagreeing_articles(self,amount=5):
-        if self.source_base_url in liberal_sources:
-            return self.make_gsearch_query(sources=conservative_sources,amount=amount)
-        else:
-            return self.make_gsearch_query(sources=liberal_sources,amount=amount)
+    def get_conservative_articles(self,amount=5):
+        return self.make_gsearch_query(sources=conservative_sources,amount=amount)
 
     # prints topic info
     def print_topic_info(self):
