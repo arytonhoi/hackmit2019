@@ -21,25 +21,86 @@ body, html {
 .hero-text {
   text-align: center;
   position: absolute;
-  top: 40%;
+  top: 30%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
 }
 
-.hero-text > h1 {
+h4 {
+  text-align: center;
+  left: 50%;
+  color: white;
+  font-size: 600%;
+  margin: 0px;
+}
+
+.results-text {
+  text-align: center;
+  left: 50%;
+  color: white;
+}
+
+#results {
+  top: 10%;
+  height:20%
+}
+
+.hero-text > h1, .results-text > h1 {
   margin-bottom: 10%;
   font-size: 800%;
 }
 
-.hero-text > h2 {
+.hero-text > h3 {
+  margin-bottom: 10%;
+  font-size: 400%;
+}
+
+.results-text > h3 {
+  font-size: 400%;
+}
+
+.hero-text > h2, .results-text > h2 {
   font-size: 300%;
 }
 
-.hero-text > p {
+.hero-text > p, .results-text > p {
   font-size: 100%;
 }
 
-.hero-text > input {
+.big-input {
   font-size: 200%;
+}
+
+.col-3 {
+  width: 33.333333%;
+  height: 100%;
+  float: left;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.results-section {
+  height: 80%;
+}
+
+.confidence-num {
+  float: left;
+  width: 20%;
+  text-align: center;
+  left: 50%;
+  color: white;
+  font-size: 200%;
+}
+
+.returned-url {
+  float: left;
+  width: 80%;
+  text-align: center;
+  left: 50%;
+  color: white;
+  font-size: 200%;
+}
+
+h2 > a {
+  color: white;
 }
