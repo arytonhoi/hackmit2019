@@ -11,8 +11,3 @@ pytest-cov==2.6.1
 pytest-mock==1.10.1
 beautifulsoup4==4.8.0
 requests==2.22.0
-google-api-core==1.14.2
-google-auth==1.6.3
-google-cloud==0.34.0
-google-cloud-language==1.3.0
-googleapis-common-protos==1.6.0
