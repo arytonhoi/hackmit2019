@@ -4,3 +4,6 @@ venv
 *.pyc
 env/
 nlp/*.json
+*.ini
+/.vscode
+*.swp
