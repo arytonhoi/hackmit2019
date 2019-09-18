@@ -4,3 +4,5 @@ venv
 *.pyc
 env/
 nlp/*.json
+*.swp
+HackMIT2019-d906dda34d5e.json
