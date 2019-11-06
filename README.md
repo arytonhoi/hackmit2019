@@ -4,13 +4,9 @@ Awarded **Best Use of Google Cloud** at HackMIT2019
 
 [Devpost](https://devpost.com/software/hackmit2019)
 
---
-
 ## Teammates
 [Matthew Todd](https://github.com/matttodd)
 [Aryton Hoi](https://github.com/arytonhoi)
-
--- 
 
 **What**: To hack for a social good, we created a website that uses GoogleCloud's AI services to bridge the divide, whether the debate is political or scientific! 
 
