@@ -4,7 +4,7 @@
 ## api
 =======
 ## CounterPoint
->>>>>>> 2f6eb1a6f987b403860dd3de33cd1e466c381244
+[!Preview of website](https://github.com/arytonhoi/hackmit2019/blob/master/counterpoint.png)
 
 Awarded **Best Use of Google Cloud** at HackMIT2019
 
