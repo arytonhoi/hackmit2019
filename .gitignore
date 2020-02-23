@@ -4,3 +4,11 @@ venv
 *.pyc
 env/
 nlp/*.json
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+*.ini
+/.vscode
+*.swp
+
+>>>>>>> 2f6eb1a6f987b403860dd3de33cd1e466c381244
