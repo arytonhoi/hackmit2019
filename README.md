@@ -1,8 +1,4 @@
-## MISSION
-
-## api
-=======
-## CounterPoint
+# CounterPoint
 ![Preview of website](https://github.com/arytonhoi/hackmit2019/blob/master/counterpoint.png)
 
 Awarded **Best Use of Google Cloud** at HackMIT2019
